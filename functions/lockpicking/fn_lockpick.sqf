@@ -1,3 +1,8 @@
+/*
+*   Heavily based on ace_vehicle_fnc_lockpick by PabstMirror.
+*   Adaptations made by McDiod, 05-05-2018
+*/
+
 #include "script_component.hpp"
 
 params [["_veh",objNull],["_unit",objNull],["_actionParams",[]]];
@@ -28,14 +33,8 @@ if (!([[_unit, _veh]] call _condition)) exitWith {false};
 
 
 // TODO
-_unlockTime = 3;
-_isFailure = false;
+private _unlockTime = 3;
+private _isFailure = false;
+private _onComplete = if (_isFailure) then {FUNC(onFailure) else {FUNC(onSuccess)};
 
-[
-    localize "str_ace_vehiclelock_action_lockpickInUse",
-    _unlockTime,
-    _condition,
-    FUNC(onSuccess),
-    {},
-    [_veh,_unit,_isFailure]
-] call CBA_fnc_progressBar;
+[localize "str_ace_vehiclelock_action_lockpickInUse",_unlockTime,_condition,_onComplete,{},[_veh,_unit]] call CBA_fnc_progressBar;

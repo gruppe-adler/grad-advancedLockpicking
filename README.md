@@ -5,6 +5,9 @@ dummy text
 * [CBA_A3](https://github.com/CBATeam/CBA_A3)
 * [ACE3](https://github.com/acemod/ACE3)
 
+## Credits
+Credits go to PabstMirror and the ACE Team. This script module builds upon ACE's vehiclelock component and uses some of its code.
+
 ## Usage
 
 ### Variables
