@@ -11,10 +11,10 @@ if (isNull _caller) exitWith {ERROR("null unit"); false};
 if (isNull _veh) exitWith {ERROR("null vehicle"); false};
 
 //Exit if vehicle unlocked:
-if ((locked _veh) == 0) exitWith {false};
+if ((locked _veh) == 0) exitWith {INFO("unit executed fnc_lockpick, but vehicle not locked"); false};
 
 //need lockpick item
-if (!("ACE_key_lockpick" in (items _unit))) exitWith {false};
+if (!("ACE_key_lockpick" in (items _unit))) exitWith {INFO("unit executed fnc_lockpick, but lockpick set not in inventory");false};
 
 private _vehLockpickStrenth = _veh getVariable[QGVAR(lockpickStrength),GVAR(defaultLockpickStrength)];
 if (!(_vehLockpickStrenth isEqualType 0)) exitWith {ERROR("grad_advancedLockpicking_lockpickStrength invalid"); false};

@@ -29,6 +29,8 @@ class grad_advancedLockpicking {
         file = MODULES_DIRECTORY\grad-advancedLockpicking\functions\wantedList;
 
         class addToWantedList {};
-        class theftMarker {};
+        class onMapDraw {};
+        class openWantedList {};
+        class updateDialog {};
     };
 };

@@ -4,7 +4,7 @@ private _lockpickAction = [
     QGVAR(lockpickAction),
     localize "str_ace_vehiclelock_action_unlock",
     "",
-    FUNC(lockpick),
+    {[FUNC(lockpick),_this] call CBA_fnc_execNextFrame},
     FUNC(canLockpick)
 ] call ace_interact_menu_fnc_createAction;
 

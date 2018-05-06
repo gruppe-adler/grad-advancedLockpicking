@@ -4,6 +4,7 @@ private _moduleConfig = missionConfigFile >> "CfgGradAdvancedLockpicking";
 
 
 GVAR(canLockpickDefault) = ([_moduleConfig,"canLockpickDefault",1] call BIS_fnc_returnConfigEntry) == 1;
+GVAR(needLockpickSet) = ([_moduleConfig,"needLockpickSet",1] call BIS_fnc_returnConfigEntry) == 1;
 
 GVAR(baseLockpickTimeDefault) = [_moduleConfig,"baseLockpickTimeDefault",10] call BIS_fnc_returnConfigEntry;
 GVAR(baseSuccessProbabilityDefault) = [_moduleConfig,"baseSuccessProbabilityDefault",75] call BIS_fnc_returnConfigEntry;
@@ -44,4 +45,7 @@ GVAR(planeSuccessFactor) = [_moduleConfig,"planeSuccessFactor",0.7] call BIS_fnc
 if (isServer) then {
     GVAR(wantedList) = [true] call CBA_fnc_createNamespace;
     publicVariable QGVAR(wantedList);
+
+    GVAR(mapIconList) = [true] call CBA_fnc_createNamespace;
+    publicVariable QGVAR(mapIconList);
 };

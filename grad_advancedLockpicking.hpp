@@ -1,4 +1,5 @@
 #include "script_component.hpp"
+#include "dialog\dialog.hpp"
 
 // base classes only, no effect by themselves
 class grad_advancedLockpicking_vehicleInitEH {

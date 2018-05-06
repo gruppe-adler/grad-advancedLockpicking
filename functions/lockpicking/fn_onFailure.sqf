@@ -7,5 +7,5 @@ if (!_failed) exitWith {};
 
 [_veh,GVAR(alarmDurationMinMax) call BIS_fnc_randomNum] call FUNC(carAlarm);
 
-[_veh,_unit,_isSuccess] remoteExec [QFUNC(addToWantedList),2,false];
+[_veh,_unit,_failed] remoteExec [QFUNC(addToWantedList),2,false];
 systemChat "onFailure";
