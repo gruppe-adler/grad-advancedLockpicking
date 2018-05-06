@@ -16,7 +16,7 @@ if ((locked _veh) == 0) exitWith {false};
 //need lockpick item
 if (!("ACE_key_lockpick" in (items _unit))) exitWith {false};
 
-private _vehLockpickStrenth = _veh getVariable[QGVAR(lockpickStrength),GVAR(DefaultLockpickStrength)];
+private _vehLockpickStrenth = _veh getVariable[QGVAR(lockpickStrength),GVAR(defaultLockpickStrength)];
 if (!(_vehLockpickStrenth isEqualType 0)) exitWith {ERROR("grad_advancedLockpicking_lockpickStrength invalid"); false};
 
 //-1 indicates unpickable lock
@@ -24,17 +24,29 @@ if (_vehLockpickStrenth < 0) exitWith {false};
 
 //Condition check for progressBar
 private _condition = {
-    params ["_args"];
-    _args params ["_unit", "_veh"];
-    ((_unit distance _veh) < 5) && {(speed _veh) < 0.1}
+    params ["_args","","_elapsedTime"];
+    _args params ["_unit", "_veh","_failed","_failureTime","_isGoingToBeSuccess"];
+
+    _failed = false;
+    if (!_isGoingToBeSuccess && _failureTime < _elapsedTime) then {
+        _args set [2,true];
+        _failed = true;
+    };
+
+    !_failed &&
+    ((_unit distance _veh) < 5) &&
+    {(speed _veh) < 0.1}
 };
 
 if (!([[_unit, _veh]] call _condition)) exitWith {false};
 
 
-// TODO
-private _unlockTime = 3;
-private _isFailure = false;
-private _onComplete = if (_isFailure) then {FUNC(onFailure) else {FUNC(onSuccess)};
+private _lockpickTime = [_veh,_unit] call FUNC(getLockpickTime);
+private _isSuccess = [_veh,_unit] call FUNC(isSuccess);
+private _failureTime = if (_isSuccess) then {-1} else {(random _lockpickTime) max 0.8};
 
-[localize "str_ace_vehiclelock_action_lockpickInUse",_unlockTime,_condition,_onComplete,{},[_veh,_unit]] call CBA_fnc_progressBar;
+systemChat format ["is success: %1",_isSuccess];
+systemChat format ["lockpick time: %1",_lockpickTime];
+systemChat format ["failure time: %1",_failureTime];
+
+[localize "str_ace_vehiclelock_action_lockpickInUse",_lockpickTime,_condition,FUNC(onSuccess),FUNC(onFailure),[_veh,_unit,false,_failureTime,_isSuccess]] call CBA_fnc_progressBar;

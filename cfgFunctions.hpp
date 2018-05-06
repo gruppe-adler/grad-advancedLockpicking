@@ -6,6 +6,7 @@ class grad_advancedLockpicking {
     class common {
         file = MODULES_DIRECTORY\grad-advancedLockpicking\functions\common;
 
+        class getVehicleColor {};
         class initModule { preInit = 1; };
     };
 
@@ -14,6 +15,9 @@ class grad_advancedLockpicking {
 
         class addActionsToClass { postInit = 1; };
         class canLockpick {};
+        class carAlarm {};
+        class getLockpickTime {};
+        class isSuccess {};
         class lockpick {};
         class onFailure {};
         class onSuccess {};
@@ -24,5 +28,7 @@ class grad_advancedLockpicking {
     class wantedList {
         file = MODULES_DIRECTORY\grad-advancedLockpicking\functions\wantedList;
 
+        class addToWantedList {};
+        class theftMarker {};
     };
 };

@@ -11,4 +11,4 @@ private _lockpickAction = [
 {
     [_x,0,["ACE_MainActions"],_lockpickAction,true] call ace_interact_menu_fnc_addActionToClass;
     false
-} count ["Car","Tank","Helicopter","Motorcycle","Ship_F"];
+} count ["Car","Tank","Helicopter","Plane","Motorcycle","Ship_F"];

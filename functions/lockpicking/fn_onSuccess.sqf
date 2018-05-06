@@ -1,10 +1,15 @@
 #include "script_component.hpp"
 
-(_this select 0) params [["_veh",objNull],["_unit",objNull],["_isFailure",false]];
+(_this select 0) params [["_veh",objNull],["_unit",objNull],["_failed",false]];
 
-if (_isFailure) exitWith {_this call FUNC(onFailure)};
+if (random 100 < (_veh getVariable [QGVAR(alarmOnSuccessProbability),sGVAR(alarmOnSuccessProbabilityDefault)])) then {
+    [_veh,GVAR(alarmDurationMinMax) call BIS_fnc_randomNum] call FUNC(carAlarm);
+};
+
+if (random 100 < (_veh getVariable [QGVAR(wantedListOnSuccessProbability),GVAR(wantedListOnSuccessProbabilityDefault)])) then {
+    [_veh,_unit,_failed] remoteExec [QFUNC(addToWantedList),2,false];
+};
 
 systemChat "onSuccess";
 
-systemChat str _veh;
 ["ace_vehiclelock_setVehicleLock",[_veh,false],[_veh]] call CBA_fnc_targetEvent;
