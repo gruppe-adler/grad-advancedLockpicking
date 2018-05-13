@@ -6,6 +6,10 @@ private _moduleConfig = missionConfigFile >> "CfgGradAdvancedLockpicking";
 GVAR(canLockpickDefault) = ([_moduleConfig,"canLockpickDefault",1] call BIS_fnc_returnConfigEntry) == 1;
 GVAR(needLockpickSet) = ([_moduleConfig,"needLockpickSet",1] call BIS_fnc_returnConfigEntry) == 1;
 
+GVAR(canUseWantedListCondition) = compile ([_moduleConfig,"canUseWantedListCondition","true"] call BIS_fnc_returnConfigEntry);
+GVAR(canUseWantedListSides) = ([_moduleConfig,"canUseWantedListSides",[]] call BIS_fnc_returnConfigEntry) apply {call compile _x};
+GVAR(wantedListTitle) = [_moduleConfig,"wantedListTitle","GRAD-advancedLockpicking"] call BIS_fnc_returnConfigEntry;
+
 GVAR(baseLockpickTimeDefault) = [_moduleConfig,"baseLockpickTimeDefault",10] call BIS_fnc_returnConfigEntry;
 GVAR(baseSuccessProbabilityDefault) = [_moduleConfig,"baseSuccessProbabilityDefault",75] call BIS_fnc_returnConfigEntry;
 

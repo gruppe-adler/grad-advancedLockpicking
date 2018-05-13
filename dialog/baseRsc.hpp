@@ -3,7 +3,7 @@ class GVAR(RscBackground) {
 	type = CT_STATIC;
 	style = ST_HUD_BACKGROUND;
 	text = "";
-	colorText[] = {0, 0, 0, 0};
+	colorText[] = {1,1,1,1};
 	font = "RobotoCondensed";
 	sizeEx = 0.04 * TEXT_SCALE;
 	shadow = 0;
@@ -18,7 +18,7 @@ class GVAR(RscText) {
 	colorBackground[] = { 1 , 1 , 1 , 0 };
 	colorText[] = { 1 , 1 , 1 , 1 };
 	font = "RobotoCondensed";
-	sizeEx = 0.025;
+	sizeEx = 0.04 * TEXT_SCALE;
 	h = 0.25;
 	text = "";
 };
@@ -29,7 +29,7 @@ class GVAR(RscStructuredTextLeft) {
 	type = CT_STRUCTURED_TEXT;
 	style = 0;
 	colorText[] = { 1 , 1 , 1 , 1 };
-	colorBackground[] = {0,0,0,0.4};
+	colorBackground[] = {0,0,0,0};
 	class Attributes {
 		font = "RobotoCondensed";
 		//color = "#e0d8a6";
@@ -39,6 +39,12 @@ class GVAR(RscStructuredTextLeft) {
 	text = "";
 	size = 0.03921;
 	shadow = 2;
+};
+
+class GVAR(RscStructuredTextRight): GVAR(RscStructuredTextLeft) {
+	class Attributes: Attributes {
+		align = "right";
+	};
 };
 
 class GVAR(RscPicture) {
@@ -93,7 +99,7 @@ class GVAR(RscButton) {
 	borderSize = 0;
 };
 
-class GVAR(RscListBox) {
+/* class GVAR(RscListBox) {
     access = 0;
     idc = -1;
     type = 5;
@@ -157,6 +163,61 @@ class GVAR(RscListBox) {
         thumb = "\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa";
         width = 0;
     };
+}; */
+
+class GVAR(RscListNBox) {
+    access = 0;
+	idc = -1;
+    h = 0.3;
+    w = 0.3;
+    x = 0;
+    y = 0;
+	type = CT_LISTNBOX;
+	style = ST_LEFT + LB_TEXTURES;
+	default = 0;
+	blinkingPeriod = 0;
+
+	colorSelectBackground[] = {1,1,1,1};
+	colorSelectBackground2[] = {1,1,1,1};
+
+	sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+	font = "RobotoCondensed";
+	shadow = 0;
+	colorText[] = {1,1,1,1};
+	colorDisabled[] = {1,1,1,0.5};
+	colorSelect[] = {0,0,0,1};
+	colorSelect2[] = {0,0,0,1};
+	colorShadow[] = {0,0,0,0.5};
+
+	tooltip = "";
+	tooltipColorShade[] = {0,0,0,1};
+	tooltipColorText[] = {1,1,1,1};
+	tooltipColorBox[] = {1,1,1,1};
+
+	columns[] = {0.0,0.75};
+
+	drawSideArrows = 0;
+	idcLeft = 1001;
+	idcRight = 1002;
+	period = 1;
+	rowHeight = 0;
+	maxHistoryDelay = 1;
+
+	soundSelect[] = {"\A3\ui_f\data\sound\RscListbox\soundSelect",0.09,1};
+
+	class ListScrollBar
+	{
+		width = 0;
+		height = 0;
+		scrollSpeed = 0.01;
+
+		arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
+		arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
+		border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
+		thumb = "\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa";
+
+		color[] = {1,1,1,1};
+	};
 };
 
 class GVAR(RscMapControl) {

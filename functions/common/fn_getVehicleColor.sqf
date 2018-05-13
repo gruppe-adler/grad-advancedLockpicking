@@ -16,6 +16,7 @@ diag_log _vehicleTextures;
     if (count (_colorTextures arrayIntersect _vehicleTextures) > 0) exitWith {
         _return = configName _x;
     };
+    false
 } count ("true" configClasses _textureSourceConfig);
 
 _return

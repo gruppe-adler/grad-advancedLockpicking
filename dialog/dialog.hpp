@@ -21,13 +21,17 @@ class GVAR(DisplayWantedList) {
             h = GRAD_BACKGROUND_H;
         };
 
-        class TopBar: GVAR(RscBackground) {
+        class TopBar: GVAR(RscText) {
             moving = true;
+
+            onLoad = QUOTE((_this select 0) ctrlSetText GVAR(wantedListTitle));
 
             x = GRAD_TOTAL_X;
             y = GRAD_TOTAL_Y;
             w = GRAD_TOTAL_W;
             h = GRAD_TOPBAR_H;
+
+            font = "EtelkaMonospacePro";
 
             colorBackground[] = {
                 "(profilenamespace getvariable ['GUI_BCG_RGB_R', 0])",
@@ -37,7 +41,57 @@ class GVAR(DisplayWantedList) {
             };
         };
 
+        class HeadlineListNBox: GVAR(RscBackground) {
+            text = "REPORTED THEFTS";
+            font = "EtelkaMonospacePro";
+
+            x = GRAD_LISTNBOX_X;
+            y = GRAD_HEADLINES_Y;
+            w = GRAD_LISTNBOX_W;
+            h = GRAD_HEADLINES_H;
+        };
+
+        class BackgroundListNBox: GVAR(RscBackground) {
+            x = GRAD_LISTNBOX_X;
+            y = GRAD_CONTENTAREA_Y;
+            w = GRAD_LISTNBOX_W;
+            h = GRAD_CONTENTAREA_H;
+        };
+
+        class HeadlineInfoBox: GVAR(RscBackground) {
+            idc = GRAD_IDC_HEADLINEINFOBOX;
+
+            font = "EtelkaMonospacePro";
+
+            x = GRAD_INFOBOX_X;
+            y = GRAD_HEADLINES_Y;
+            w = GRAD_INFOBOX_W;
+            h = GRAD_HEADLINES_H;
+        };
+
+        class BackgroundInfoBox: GVAR(RscBackground) {
+            x = GRAD_INFOBOX_X;
+            y = GRAD_CONTENTAREA_Y;
+            w = GRAD_INFOBOX_W;
+            h = GRAD_CONTENTAREA_H;
+        };
+
+        class HeadlineMap: GVAR(RscBackground) {
+            idc = GRAD_IDC_HEADLINEMAP;
+
+            font = "EtelkaMonospacePro";
+
+            x = GRAD_MAPBOX_X;
+            y = GRAD_HEADLINES_Y;
+            w = GRAD_MAPBOX_W;
+            h = GRAD_HEADLINES_H;
+        };
+
         class Map: GVAR(RscMapControl) {
+            idc = GRAD_IDC_MAP;
+
+            onMouseButtonUp = QUOTE(_this call FUNC(onMapClick));
+
             x = GRAD_MAPBOX_X;
             y = GRAD_CONTENTAREA_Y;
             w = GRAD_MAPBOX_W;
@@ -48,11 +102,44 @@ class GVAR(DisplayWantedList) {
     };
 
     class Controls {
-        class ListBox: GVAR(RscListBox) {
-            x = GRAD_LISTBOX_X;
+        class ListNBox: GVAR(RscListNBox) {
+            idc = GRAD_IDC_LISTNBOX;
+
+            onLBSelChanged = QUOTE(_this call FUNC(onLBSelChanged));
+
+            x = GRAD_LISTNBOX_X_WITH_OFFSET;
             y = GRAD_CONTENTAREA_Y;
-            w = GRAD_LISTBOX_W;
+            w = GRAD_LISTNBOX_W_WITH_OFFSET;
             h = GRAD_CONTENTAREA_H;
+
+            columns[] = {0.04,0.17,0.71};
+        };
+
+        class InfoBoxLeft: GVAR(RscStructuredTextLeft) {
+            idc = GRAD_IDC_INFOBOXLEFT;
+
+            x = GRAD_INFOBOX_X;
+            y = GRAD_CONTENTAREA_Y;
+            w = GRAD_INFOBOX_W;
+            h = GRAD_CONTENTAREA_H;
+        };
+
+        class InfoBoxRight: InfoBoxLeft {
+            idc = GRAD_IDC_INFOBOXRIGHT;
+
+            x = GRAD_INFOBOX_X + (GRAD_INFOBOX_W / 2);
+            y = GRAD_CONTENTAREA_Y;
+            w = (GRAD_INFOBOX_W / 2);
+            h = GRAD_CONTENTAREA_H;
+        };
+
+        class InfoBoxPic: GVAR(RscPicture) {
+            idc = GRAD_IDC_INFOBOXPIC;
+
+            x = GRAD_INFOBOXPIC_X;
+            y = GRAD_INFOBOXPIC_Y;
+            w = GRAD_INFOBOXPIC_W;
+            h = GRAD_INFOBOXPIC_H;
         };
     };
 };
