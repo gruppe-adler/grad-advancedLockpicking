@@ -18,6 +18,14 @@ GVAR(alarmDurationMinMax) = [_moduleConfig,"alarmDurationMinMax",[10,30]] call B
 GVAR(alarmOnSuccessProbabilityDefault) = [_moduleConfig,"alarmOnSuccessProbabilityDefault",10] call BIS_fnc_returnConfigEntry;
 GVAR(wantedListOnSuccessProbabilityDefault) = [_moduleConfig,"wantedListOnSuccessProbabilityDefault",50] call BIS_fnc_returnConfigEntry;
 
+GVAR(wantedListDelayOnFailure) = [_moduleConfig,"wantedListDelayOnFailure",[0,0]] call BIS_fnc_returnConfigEntry;
+GVAR(wantedListDelayOnSuccess) = [_moduleConfig,"wantedListDelayOnSuccess",[10,60]] call BIS_fnc_returnConfigEntry;
+
+GVAR(suspectNameProbabilityOnAlarm) = [_moduleConfig,"suspectNameProbabilityOnAlarm",10] call BIS_fnc_returnConfigEntry;
+GVAR(suspectNameProbabilityOnNoAlarm) = [_moduleConfig,"suspectNameProbabilityOnNoAlarm",1] call BIS_fnc_returnConfigEntry;
+
+GVAR(plateNumberProbability) = [_moduleConfig,"plateNumberProbability",90] call BIS_fnc_returnConfigEntry;
+
 GVAR(specialistTimeFactor) = [_moduleConfig,"specialistTimeFactor",0.7] call BIS_fnc_returnConfigEntry;
 GVAR(specialistSuccessFactor) = [_moduleConfig,"specialistSuccessFactor",1.5] call BIS_fnc_returnConfigEntry;
 

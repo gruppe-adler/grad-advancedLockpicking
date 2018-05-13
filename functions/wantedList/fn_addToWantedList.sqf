@@ -2,18 +2,19 @@
 
 if (!isServer) exitWith {};
 
-params [["_veh",objNull],["_unit",objNull],["_failed",false]];
+params [["_veh",objNull],["_unit",objNull],["_failed",false],["_alarmTriggered",false]];
 
 private _theftPos = getPos _veh;
 private _vehColor = [_veh] call FUNC(getVehicleColor);
-private _thiefName = name _unit;
+private _thiefName = ["none",name _unit] select ((random 100) < ([GVAR(suspectNameProbabilityOnNoAlarm),GVAR(suspectNameProbabilityOnAlarm)] select _alarmTriggered));
 private _carVar = [_veh call BIS_fnc_netId] call BIS_fnc_filterString;
 private _vehicleDisplayName = [configFile >> "CfgVehicles" >> typeOf _veh,"displayname","unknown model"] call BIS_fnc_returnConfigEntry;
 private _status = [1,0] select _failed;
+private _plateNumber = ["unknown",getPlateNumber _veh] select ((random 100) < GVAR(plateNumberProbability));
 
 
 // [vehicle object, vehicle className, position of theft, date array, status (0 = attempted theft, 1 = theft, 2 = case solved), name of thief, display name of vehicle, plate number, color display name, case solver, missionTime]
-GVAR(wantedList) setVariable [_carVar,[_veh,typeOf _veh,_theftPos,date,_status,_thiefName,_vehicleDisplayName,getPlateNumber _veh,_vehColor,"",CBA_missionTime],true];
+GVAR(wantedList) setVariable [_carVar,[_veh,typeOf _veh,_theftPos,date,_status,_thiefName,_vehicleDisplayName,_plateNumber,_vehColor,"",CBA_missionTime],true];
 
 private _vehIcon = switch (true) do {
     /* case (_veh isKindOf "Truck_F"): {"iconTruck"}; */    // cant find texture for some reason
