@@ -1,9 +1,8 @@
 #include "script_component.hpp"
 #include "..\..\dialog\defines.hpp"
 
-params [["_display",displayNull],["_vehClassName",""],["_date",[0,0,0,0,0]],["_status",0],["_thiefName",""],["_vehicleDisplayName",""],["_plateNumber",""],["_vehColor",""]];
+params [["_display",displayNull],["_vehClassName",""],["_date",[0,0,0,0,0]],["_status",0],["_thiefName",""],["_vehicleDisplayName",""],["_plateNumber",""],["_vehColor",""],["_caseSolver",""]];
 
-private _display = findDisplay GRAD_IDD_DIALOG;
 if (isNull _display) exitWith {};
 
 private _infoBoxHeadlineCtrl = _display displayCtrl GRAD_IDC_HEADLINEINFOBOX;
@@ -36,7 +35,9 @@ private _rightArray = [];
     ["Time",_timeStr],
     ["Suspect",_thiefName],
     ["Plate Number",_plateNumber],
-    ["Color",_vehColor]
+    ["Color",_vehColor],
+    [" "," "],
+    ["Marked as solved by:",_caseSolver]
 ];
 
 

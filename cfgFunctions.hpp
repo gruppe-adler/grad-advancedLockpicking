@@ -34,7 +34,9 @@ class grad_advancedLockpicking {
         class onLBSelChanged {};
         class onMapClick {};
         class onMapDraw {};
+        class onSolvedButton {};
         class openWantedList {};
+        class setStatus {};
         class updateDialog {};
         class updateInfoBox {};
         class updateMap {};

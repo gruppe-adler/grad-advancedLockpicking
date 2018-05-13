@@ -110,7 +110,7 @@ class GVAR(DisplayWantedList) {
             x = GRAD_LISTNBOX_X_WITH_OFFSET;
             y = GRAD_CONTENTAREA_Y;
             w = GRAD_LISTNBOX_W_WITH_OFFSET;
-            h = GRAD_CONTENTAREA_H;
+            h = GRAD_LISTNBOX_H;
 
             columns[] = {0.04,0.17,0.71};
         };
@@ -140,6 +140,28 @@ class GVAR(DisplayWantedList) {
             y = GRAD_INFOBOXPIC_Y;
             w = GRAD_INFOBOXPIC_W;
             h = GRAD_INFOBOXPIC_H;
+        };
+
+        class SolvedButton: GVAR(RscButton) {
+            idc = GRAD_IDC_SOLVEDBUTTON;
+            
+            text = "MARK AS SOLVED";
+            font = "EtelkaMonospacePro";
+
+            x = GRAD_SOLVEDBUTTON_X;
+            y = GRAD_SOLVEDBUTTON_Y;
+            w = GRAD_SOLVEDBUTTON_W;
+            h = GRAD_SOLVEDBUTTON_H;
+
+            colorBackground[] = {
+                "(profilenamespace getvariable ['GUI_BCG_RGB_R', 0])",
+                "(profilenamespace getvariable ['GUI_BCG_RGB_G',0])",
+                "(profilenamespace getvariable ['GUI_BCG_RGB_B',0])",
+                1
+            };
+
+            onLoad = QUOTE((_this select 0) ctrlEnable false);
+            onButtonClick = QUOTE(_this call FUNC(onSolvedButton));
         };
     };
 };

@@ -12,8 +12,8 @@ private _vehicleDisplayName = [configFile >> "CfgVehicles" >> typeOf _veh,"displ
 private _status = [1,0] select _failed;
 
 
-// [vehicle object, vehicle className, position of theft, date array, status (0 = attempted theft, 1 = theft, 2 = case solved), name of thief, display name of vehicle, plate number, color display name]
-GVAR(wantedList) setVariable [_carVar,[_veh,typeOf _veh,_theftPos,date,_status,_thiefName,_vehicleDisplayName,getPlateNumber _veh,_vehColor],true];
+// [vehicle object, vehicle className, position of theft, date array, status (0 = attempted theft, 1 = theft, 2 = case solved), name of thief, display name of vehicle, plate number, color display name, case solver]
+GVAR(wantedList) setVariable [_carVar,[_veh,typeOf _veh,_theftPos,date,_status,_thiefName,_vehicleDisplayName,getPlateNumber _veh,_vehColor,""],true];
 
 private _vehIcon = switch (true) do {
     /* case (_veh isKindOf "Truck_F"): {"iconTruck"}; */    // cant find texture for some reason
@@ -27,12 +27,3 @@ private _vehIcon = switch (true) do {
 };
 private _color = if (_failed) then {[0.7,0.7,0,1]} else {[0.8,0,0,1]};
 GVAR(mapIconList) setVariable [_carVar,[_theftPos,_vehIcon,_color,format ["%1:%2",date select 3,date select 4]],true];
-
-
-
-
-
-
-
-
-systemChat format ["Vehicle %1 stolen by %2 added to wanted list.",_veh,name _unit];

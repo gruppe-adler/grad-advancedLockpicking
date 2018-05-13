@@ -45,8 +45,4 @@ private _lockpickTime = [_veh,_unit] call FUNC(getLockpickTime);
 private _isSuccess = [_veh,_unit] call FUNC(isSuccess);
 private _failureTime = if (_isSuccess) then {-1} else {(random _lockpickTime) max 0.8};
 
-systemChat format ["is success: %1",_isSuccess];
-systemChat format ["lockpick time: %1",_lockpickTime];
-systemChat format ["failure time: %1",_failureTime];
-
 [localize "str_ace_vehiclelock_action_lockpickInUse",_lockpickTime,_condition,FUNC(onSuccess),FUNC(onFailure),[_veh,_unit,false,_failureTime,_isSuccess]] call CBA_fnc_progressBar;

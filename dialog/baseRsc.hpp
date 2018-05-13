@@ -66,9 +66,10 @@ class GVAR(RscPicture) {
 };
 
 class GVAR(RscButton) {
+	idc = -1;
 	access = 0;
 	type = CT_BUTTON;
-	style = ST_RIGHT;
+	style = ST_CENTER;
 	text = "";
 	colorText[] = {1,1,1,1};
 	colorDisabled[] = {1,1,1,0.1};
@@ -98,72 +99,6 @@ class GVAR(RscButton) {
 	offsetPressedY = 0.002;
 	borderSize = 0;
 };
-
-/* class GVAR(RscListBox) {
-    access = 0;
-    idc = -1;
-    type = 5;
-    style = 16;
-
-    h = 0.3;
-    w = 0.3;
-    x = 0;
-    y = 0;
-
-    arrowEmpty = "#(argb,8,8,3)color(1,1,1,1)";
-    arrowFull = "#(argb,8,8,3)color(1,1,1,1)";
-    autoScrollDelay = 5;
-    autoScrollRewind = 0;
-    autoScrollSpeed = -1;
-    colorBackground[] = {0,0,0,0};
-    colorDisabled[] = {1,1,1,0.25};
-    colorPicture[] = {1,1,1,1};
-    colorPictureDisabled[] = {1,1,1,0.25};
-    colorPictureRight[] = {1,1,1,1};
-    colorPictureRightDisabled[] = {1,1,1,0.25};
-    colorPictureRightSelected[] = {1,1,1,1};
-    colorPictureSelected[] = {1,1,1,1};
-    colorScrollbar[] = {1,0,0,0};
-    colorSelect[] = {0,0,0,1};
-    colorSelect2[] = {0,0,0,1};
-    colorSelect2Right[] = {0,0,0,1};
-    colorSelectBackground[] = {0.95,0.95,0.95,1};
-    colorSelectBackground2[] = {1,1,1,0.5};
-    colorSelectRight[] = {0,0,0,1};
-    colorShadow[] = {0,0,0,0.5};
-    colorText[] = {1,1,1,1};
-    colorTextRight[] = {1,1,1,1};
-    deletable = 0;
-    fade = 0;
-    font = "RobotoCondensed";
-    maxHistoryDelay = 1;
-    period = 1.2;
-    rowHeight = 0;
-    shadow = 0;
-    sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
-    soundSelect[] = {"\A3\ui_f\data\sound\RscListbox\soundSelect",0.09,1};
-    tooltipColorBox[] = {1,1,1,1};
-    tooltipColorShade[] = {0,0,0,0.65};
-    tooltipColorText[] = {1,1,1,1};
-
-    class ListScrollBar {
-        arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
-        arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
-        autoScrollDelay = 5;
-        autoScrollEnabled = 1;
-        autoScrollRewind = 0;
-        autoScrollSpeed = -1;
-        border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
-        color[] = {1,1,1,1};
-        colorActive[] = {1,1,1,1};
-        colorDisabled[] = {1,1,1,0.3};
-        height = 0;
-        scrollSpeed = 0.06;
-        shadow = 0;
-        thumb = "\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa";
-        width = 0;
-    };
-}; */
 
 class GVAR(RscListNBox) {
     access = 0;

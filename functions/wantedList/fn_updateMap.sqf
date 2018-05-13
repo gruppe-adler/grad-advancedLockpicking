@@ -12,9 +12,9 @@ ctrlMapAnimCommit _mapCtrl;
 
 private _nearestLocations = nearestLocations [_theftPos,["Airport","NameMarine","NameCityCapital","NameCity","NameVillage","NameLocal"],2000];
 private _headlineText = if (count _nearestLocations > 0) then {
-    format ["REPORTED NEAR %1",toUpper text (_nearestLocations select 0)];
+    format ["NEAR %1",toUpper text (_nearestLocations select 0)];
 } else {
-    format ["REPORTED AT %1",_theftPos apply {round _x}];
+    format ["AT %1",_theftPos apply {round _x}];
 };
 _mapHeadlineCtrl ctrlSetText _headlineText;
 

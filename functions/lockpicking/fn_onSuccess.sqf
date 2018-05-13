@@ -10,6 +10,4 @@ if (random 100 < (_veh getVariable [QGVAR(wantedListOnSuccessProbability),GVAR(w
     [_veh,_unit,_failed] remoteExec [QFUNC(addToWantedList),2,false];
 };
 
-systemChat "onSuccess";
-
 ["ace_vehiclelock_setVehicleLock",[_veh,false],[_veh]] call CBA_fnc_targetEvent;
