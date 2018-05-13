@@ -1,4 +1,7 @@
 # GRAD Advanced Lockpicking
+![License](https://img.shields.io/aur/license/yaourt.svg) ![GitHub release](https://img.shields.io/github/release/gruppe-adler/grad-advancedLockpicking.svg)
+
+
 An continuation of ACE-vehiclelock's lockpicking functionality in a modular package for your mission. Adds possibility for lockpicking to fail and trigger an alarm. Gives player (e.g. "Police" faction) a wanted list dialog listing all reported vehicle thefts. Comes with more detailed configurability.
 
 ## Dependencies
@@ -14,6 +17,8 @@ Interact with a locked vehicle like you would with ACE. Select *unlock vehicle* 
 Players that have been configured the ability to open the *wanted list* will get a notification whenever a vehicle theft has been reported. They may open the *wanted list* dialog with *ACE-Selfinteraction >> Equipment >> Wanted List*. When selecting a vehicle from the list on the left, additional info will be displayed in the middle of the dialog. The map on the right will move to the selected vehicle. This works backwards as well by selecting a vehicle from the map.
 
 By hitting the *Mark as Solved* button, the case will be marked as solved globally (for all players). The name of the unit who closed the case will be added to the case's info text.
+
+![](https://i.imgur.com/n9pR2kH.jpg)
 
 ## Installation
 Add the following lines to your `description.ext`. Use `#define MODULES_DIRECTORY <your path>` if you want to use your own folder structure instead of the `node_modules` folder.
