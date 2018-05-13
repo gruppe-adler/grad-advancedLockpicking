@@ -73,7 +73,23 @@ class GVAR(DisplayWantedList) {
             x = GRAD_INFOBOX_X;
             y = GRAD_CONTENTAREA_Y;
             w = GRAD_INFOBOX_W;
-            h = GRAD_CONTENTAREA_H;
+            h = GRAD_INFOBOX_H;
+        };
+
+        class BackgroundInfoBoxPic: GVAR(RscBackground) {
+            x = GRAD_INFOBOX_X;
+            y = GRAD_INFOBOXPIC_Y;
+            w = GRAD_INFOBOX_W;
+            h = GRAD_INFOBOXPIC_H;
+        };
+
+        class BackgroundInfoBoxPicText: GVAR(RscStructuredTextLeft) {
+            idc = GRAD_IDC_INFOBOXPICTEXT;
+
+            x = GRAD_INFOBOX_X;
+            y = GRAD_INFOBOXPIC_Y;
+            w = GRAD_INFOBOX_W;
+            h = GRAD_INFOBOXPIC_H;
         };
 
         class HeadlineMap: GVAR(RscBackground) {
@@ -121,7 +137,7 @@ class GVAR(DisplayWantedList) {
             x = GRAD_INFOBOX_X;
             y = GRAD_CONTENTAREA_Y;
             w = GRAD_INFOBOX_W;
-            h = GRAD_CONTENTAREA_H;
+            h = GRAD_INFOBOX_H;
         };
 
         class InfoBoxRight: InfoBoxLeft {
@@ -130,7 +146,7 @@ class GVAR(DisplayWantedList) {
             x = GRAD_INFOBOX_X + (GRAD_INFOBOX_W / 2);
             y = GRAD_CONTENTAREA_Y;
             w = (GRAD_INFOBOX_W / 2);
-            h = GRAD_CONTENTAREA_H;
+            h = GRAD_INFOBOX_H;
         };
 
         class InfoBoxPic: GVAR(RscPicture) {
@@ -144,7 +160,7 @@ class GVAR(DisplayWantedList) {
 
         class SolvedButton: GVAR(RscButton) {
             idc = GRAD_IDC_SOLVEDBUTTON;
-            
+
             text = "MARK AS SOLVED";
             font = "EtelkaMonospacePro";
 

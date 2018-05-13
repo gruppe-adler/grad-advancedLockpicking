@@ -9,6 +9,7 @@ private _infoBoxHeadlineCtrl = _display displayCtrl GRAD_IDC_HEADLINEINFOBOX;
 private _infoBoxLeftCtrl = _display displayCtrl GRAD_IDC_INFOBOXLEFT;
 private _infoBoxRightCtrl = _display displayCtrl GRAD_IDC_INFOBOXRIGHT;
 private _infoBoxPicCtrl = _display displayCtrl GRAD_IDC_INFOBOXPIC;
+private _infoBoxPicTextCtrl = _display displayCtrl GRAD_IDC_INFOBOXPICTEXT;
 
 _infoBoxHeadlineCtrl ctrlSetText _vehicleDisplayName;
 
@@ -40,6 +41,7 @@ private _rightArray = [];
     ["Marked as solved by:",_caseSolver]
 ];
 
+_infoBoxPicTextCtrl ctrlSetStructuredText parseText (["","Vehicle Silhouette"] select (count _leftArray > 0));
 
 _infoBoxLeftCtrl ctrlSetStructuredText composeText _leftArray;
 _infoBoxRightCtrl ctrlSetStructuredText composeText _rightArray;
