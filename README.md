@@ -13,7 +13,7 @@ Interact with a locked vehicle like you would with ACE. Select *unlock vehicle* 
 
 Players that have been configured the ability to open the *wanted list* will get a notification whenever a vehicle theft has been reported. They may open the *wanted list* dialog with *ACE-Selfinteraction >> Equipment >> Wanted List*. When selecting a vehicle from the list on the left, additional info will be displayed in the middle of the dialog. The map on the right will move to the selected vehicle. This works backwards as well by selecting a vehicle from the map.
 
-By hitting the *Mark as Solved* button, the case will be marked as solved globally (for all players). The name of the unit who closed the case will be added to the case's info text. 
+By hitting the *Mark as Solved* button, the case will be marked as solved globally (for all players). The name of the unit who closed the case will be added to the case's info text.
 
 ## Installation
 Add the following lines to your `description.ext`. Use `#define MODULES_DIRECTORY <your path>` if you want to use your own folder structure instead of the `node_modules` folder.
@@ -101,42 +101,42 @@ class CfgGradAdvancedLockpicking {
 ### Object Variables
 Additionally to the aforementioned global settings, there are some variables that you can set on objects to configure how they interact with this module. All variables have the prefix *grad_advancedLockpicking*.
 
-**(unit namespace) canLockpick**  
+#### (unit namespace) canLockpick
 Allows a unit to lockpick even when *canLockpickDefault* is set to false.
 
 ```sqf
 _unit setVariable ["grad_advancedLockpicking_canLockpick",true];
 ```
 
-**(unit namespace) isSpecialist**  
+#### (unit namespace) isSpecialist
 Sets a unit to specialist who uses *specialistTimeFactor* and *specialistSuccessFactor*.
 
 ```sqf
 _unit setVariable ["grad_advancedLockpicking_isSpecialist",true];
 ```
 
-**(vehicle namespace) baseLockpickTime**  
+#### (vehicle namespace) baseLockpickTime
 Sets base lockpicking time value in seconds for specific vehicle. Overrides *baseLockpickTimeDefault*. Type based time factors (car, boat, ...) no longer apply.
 
 ```sqf
 _vehicle setVariable ["grad_advancedLockpicking_baseLockpickTime",20];
 ```
 
-**(vehicle namespace) baseSuccessProbability**  
+#### (vehicle namespace) baseSuccessProbability
 Sets base success probability value in percent for specific vehicle. Overrides *baseSuccessProbabilityDefault*. Type based success factors (car, boat, ...) no longer apply.
 
 ```sqf
 _vehicle setVariable ["grad_advancedLockpicking_baseSuccessProbability",50];
 ```
 
-**(vehicle namespace) alarmOnSuccessProbability**  
+#### (vehicle namespace) alarmOnSuccessProbability
 Sets base alarm probability value in percent for specific vehicle. Overrides *alarmOnSuccessProbabilityDefault*.
 
 ```sqf
 _vehicle setVariable ["grad_advancedLockpicking_alarmOnSuccessProbability",80];
 ```
 
-**(vehicle namespace) wantedListOnSuccessProbability**  
+#### (vehicle namespace) wantedListOnSuccessProbability
 Sets adding to wanted list on success probability value in percent for specific vehicle. Overrides *wantedListOnSuccessProbabilityDefault*.
 
 ```sqf
