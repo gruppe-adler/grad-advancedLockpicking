@@ -1,5 +1,5 @@
 #ifndef MODULES_DIRECTORY
-    #define MODULES_DIRECTORY modules
+    #define MODULES_DIRECTORY node_modules
 #endif
 
 class grad_advancedLockpicking {
@@ -37,6 +37,8 @@ class grad_advancedLockpicking {
         class onSolvedButton {};
         class openWantedList {};
         class setStatus {};
+        class showNotification {};
+        class sortDataByTime {};
         class updateDialog {};
         class updateInfoBox {};
         class updateMap {};

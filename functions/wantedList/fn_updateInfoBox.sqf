@@ -13,7 +13,7 @@ private _infoBoxPicCtrl = _display displayCtrl GRAD_IDC_INFOBOXPIC;
 _infoBoxHeadlineCtrl ctrlSetText _vehicleDisplayName;
 
 private _dateStr = format ["%1.%2.%3",_date select 2,_date select 1,_date select 0];
-private _timeStr = format ["%1:%2%3",_date select 3,["0",""] select ((_date select 4) >= 10),_date select 4];
+private _timeStr = format ["%1:%2%3",_date select 3,["","0"] select ((_date select 4) < 10),_date select 4];
 private _statusStr = ["attempted break-in","vehicle stolen","case solved"] select _status;
 
 private _leftArray = [];

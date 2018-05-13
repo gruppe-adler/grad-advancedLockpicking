@@ -11,3 +11,4 @@ _theftData set [4,_status];
 _theftData set [9,_caseSolver];
 
 [] remoteExec [QFUNC(updateDialog),0,false];
+["CASE CLOSED",format ["A case has been marked as solved by %1.",_caseSolver]] remoteExec [QFUNC(showNotification),0,false];
