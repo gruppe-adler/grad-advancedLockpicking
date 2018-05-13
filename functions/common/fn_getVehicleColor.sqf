@@ -9,7 +9,6 @@ private _vehicleTextures = (getObjectTextures _veh) apply {toUpper _x} apply {"\
 if (count _vehicleTextures == 0) exitWith {_return};
 
 private _textureSourceConfig = configFile >> "CfgVehicles" >> typeOf _veh >> "TextureSources";
-diag_log _vehicleTextures;
 
 {
     _colorTextures = ([_x,"textures",[]] call BIS_fnc_returnConfigEntry) apply {toUpper _x};

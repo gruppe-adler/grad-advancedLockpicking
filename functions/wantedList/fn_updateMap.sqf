@@ -17,5 +17,3 @@ private _headlineText = if (count _nearestLocations > 0) then {
     format ["AT %1",_theftPos apply {round _x}];
 };
 _mapHeadlineCtrl ctrlSetText _headlineText;
-
-diag_log [_headlineText,_mapHeadlineCtrl];
