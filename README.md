@@ -38,7 +38,7 @@ class CfgNotifications {
 ### Via `npm`
 _for details about what npm is and how to use it, look it up on [npmjs.com](https://www.npmjs.com/)_
 
-Install package `grad-advancedLockpicking` : `npm install --save grad-advancedLockpicking`.
+Install package `grad-advancedlockpicking` : `npm install --save grad-advancedlockpicking`.
 
 ### Manually
 Download the latest release from the [releases page](https://github.com/gruppe-adler/grad-advancedLockpicking/releases). Place the `grad-advancedLockpicking` folder in your mission's root folder.
