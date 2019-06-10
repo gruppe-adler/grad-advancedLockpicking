@@ -156,6 +156,7 @@ class GVAR(RscListNBox) {
 };
 
 class GVAR(RscMapControl) {
+    widthRailWay = 1;
     access = 0;
     alphaFadeEndScale = 2;
     alphaFadeStartScale = 2;
